@@ -1,0 +1,15 @@
+<%-  include ('partials/navbar.ejs'); %>
+<%-  include ('partials/header.ejs'); %>
+    <h1>Conheça nossos produtos:</h1>
+    <%= produto %>
+    <% if (!produto){ %>
+<p><%= listaProdutos%></p>
+  <% } %> 
+
+<%if(!produto){%>
+    <% listaProdutos.forEach((produto)=> {%>
+<p>
+   <a href="/produtos/ <%= produto%>"> <%= produto%></p></a>
+
+    <%})}%>
+    <%-  include ('partials/footer.ejs'); %>

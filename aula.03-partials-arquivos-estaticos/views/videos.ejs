@@ -1,0 +1,11 @@
+<%-  include ('partials/navbar.ejs'); %>
+<%-  include ('partials/header.ejs'); %>
+    <h1>Lista de videos</h1>
+    <% if(playlist && !videos){ %>
+       <h2>Você está na playlist <%= playlist %> </h2>
+        <% } if(playlist && videos) {%>
+            <h2>Você está na playlist <%= playlist %> vendo <%= videos %></h2>
+            <% } if(!playlist && !videos){ %>
+                <h2>Escolha a playlist</h2>
+                <% }%>
+                <%-  include ('partials/footer.ejs'); %>

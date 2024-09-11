@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+</head>
+<body>
+    <h1>Conheça nossos produtos:</h1>
+   <h2> <%= produto %></h2>
+   <h2> <% if (!produto){ %>
+<p><%= listaProdutos%></p>
+  <% } %> </h2>
+
+<%if(!produto){%>
+    <% listaProdutos.forEach((produto)=> {%>
+<p>
+   <a href="/produtos/ <%= produto%>"> <%= produto%></p></a>
+
+    <%})}%>
+</body>
+</html>
