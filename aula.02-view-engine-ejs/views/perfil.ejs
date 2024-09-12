@@ -8,7 +8,9 @@
 <body>
     <h1>Seja bem vindo</h1>
     <% if(nome) { %>
-       <h2>Olá <%= nome %> </h2> 
-        <% }%>
+       <h2>Seja bem vindo <%= nome %> </h2> 
+        <% } else {%>
+            <h2>Faça login para mais informações</h2>
+            <%}%>
 </body>
 </html>
