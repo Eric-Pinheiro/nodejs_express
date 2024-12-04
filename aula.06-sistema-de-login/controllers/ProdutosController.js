@@ -1,16 +1,17 @@
 import express from 'express'
 const router = express.Router()
 import Produto from '../models/Produto.js'
+import Auth from '../middleware/Auth.js'
 
 // ROTA PRODUTOS
-router.get("/produtos", function(req,res){
+router.get("/produtos",Auth, function(req,res){
     Produto.findAll().then(produtos=>{
         res.render("produtos", {
             produtos: produtos
         })
     })
 })
-router.post("/produtos/new", (req,res)=>{
+router.post("/produtos/new", Auth,(req,res)=>{
 const nome = req.body.nome
     const preco = req.body.preco
 const categoria = req.body.categoria
@@ -20,7 +21,7 @@ Produto.create({
     res.redirect("/produtos")
 })
 })
-router.get("/produtos/delete/:id", (req,res)=>{
+router.get("/produtos/delete/:id",Auth, (req,res)=>{
     //coletar o id da url
     const id = req.params.id
     //metodo para excluir
@@ -37,7 +38,7 @@ router.get("/produtos/delete/:id", (req,res)=>{
     })
     
     //rota de edição de produtos
-router.get("/produtos/edit/:id", (req, res)=>{
+router.get("/produtos/edit/:id",Auth, (req, res)=>{
     const id = req.params.id
    Produto.findByPk(id).then((produto)=>{
        res.render("produtoEdit", {
@@ -48,7 +49,7 @@ router.get("/produtos/edit/:id", (req, res)=>{
 })
 })
 //rota de alteração
-router.post("/produtos/update", (req,res)=>{
+router.post("/produtos/update",Auth, (req,res)=>{
    const id = req.body.id;
    const nome = req.body.nome;
    const preco = req.body.preco;

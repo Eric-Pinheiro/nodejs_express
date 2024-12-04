@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+<% if(messages.danger ){ %>
+    <div class="alert alert-danger">
+        <%= messages.danger %>
+    </div>
+    <%}%>
+<div class="container col-4">
+<div class="card mt-4">
+    <div class="card-header">
+        <h2>Login de administrador</h2>
+    </div>
+    <div class="card-body ">
+        <p style="color: red; font-size: 0.7rem;">Você precisa estar logado para acessar os recursos do painel</p>
+        <form action="/authenticate" method="post">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" name="email" placeholder="exemplo@gmail.com" required>
+            <label for="Senha">Senha</label>
+            <input type="password" class="form-control" name="password" placeholder="exemplo@gmail.com" required>
+        <input type="submit" class="btn btn-success btn-block" value="Entrar">
+        </form>
+        <hr>
+        <h6>Não possui conta? <a href="/cadastro">Cadastre-se!</a></h6>
+    </div>
+</div>
+</div>
+
+
+<%- include('partials/footer.ejs') %>
